@@ -2,29 +2,30 @@ import random
 import sys
 
 class Game:
-	def __init__(self, rock="rock", paper="paper", scissors="scissors", exit="quit", win_move=None, defeat_move=None, special_moves_for_computer=False):
+	def __init__(self, rock="rock", paper="paper", scissors="scissors", exit="quit"):
 		self.rock = rock
 		self.paper = paper
 		self.scissors = scissors
 		self.exit = exit
-		self.win_move = win_move
-		self.defeat_move = defeat_move
-		self.special_moves_for_computer = special_moves_for_computer
-		self.options = [self.rock, self.paper, self.scissors, self.win_move, self.defeat_move]
+		# self.win_move = win_move
+		# self.defeat_move = defeat_move
+		# self.special_moves_for_computer = special_moves_for_computer
+		self.options = [self.rock, self.paper, self.scissors]
 
 	def run(self, print_results=True, custom_input=None):
 		def computer():
-			if self.special_moves_for_computer == False:
-				move = random.choice(self.options)
-				while move != self.win_move and move != self.deafeat_move:
-					move = random.choice(self.options)
-			elif self.special_moves_for_computer == True:
-				if self.win_move == None or self.defeat_move == None:
-					move = random.choice(self.options)
-					while move != self.win_move and move != self.defeat_move:
-						move = random.choice(self.options)
-				else:
-					move = random.choice(self.options)
+			# if self.special_moves_for_computer == False:
+			# 	move = random.choice(self.options)
+			# 	while move != self.win_move and move != self.defeat_move:
+			# 		move = random.choice(self.options)
+			# elif self.special_moves_for_computer == True:
+			# 	if self.win_move == None or self.defeat_move == None:
+			# 		move = random.choice(self.options)
+			# 		while move != self.win_move and move != self.defeat_move:
+			# 			move = random.choice(self.options)
+			# 	else:
+			# 		move = random.choice(self.options)
+			move = random.choice(self.options)
 			return move
 
 		def player():
@@ -72,11 +73,17 @@ class Game:
 			else:
 				computer_won = True
 
-		elif player_move == self.win_move:
-			player_won = True
+		# elif player_move == self.win_move:
+		# 	player_won = True
 
-		elif player_move == self.defeat_move:
-			computer_won = True
+		# elif player_move == self.defeat_move:
+		# 	computer_won = True
+
+		# elif computer_move == self.win_move:
+		# 	computer_won = True
+
+		# elif computer_move == self.defeat_move:
+		# 	player_won = True
 
 		else:
 			error = True
@@ -95,5 +102,16 @@ class Game:
 				print("It's a tie!")
 				return "T"
 			elif error:
-				print("That isn't a valid move!")
+				print("\"{}\"? That isn't a valid move!".format(player_move))
 				return "E"
+		
+		else:
+			if player_won:
+				return "PW"
+			elif computer_won:
+				return "CW"
+			elif tie:
+				return "T"
+			elif error:
+				return "E"
+				
