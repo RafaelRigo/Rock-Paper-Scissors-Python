@@ -52,38 +52,32 @@ class Game:
 		elif player_move == self.rock:
 			if computer_move == self.scissors:
 				player_won = True
-			elif computer_move == self.win_move:
-				computer_won = True
-			else:
-				computer_won = True
+			# elif computer_move == self.win_move:
+			# 	computer_won = True
+			# else:
+			# 	computer_won = True
 
 		elif player_move == self.paper:
 			if computer_move == self.rock:
 				player_won = True
-			elif computer_move == self.win_move:
-				computer_won = True
-			else:
-				computer_won = True
+			# elif computer_move == self.win_move:
+			# 	computer_won = True
+			# else:
+			# 	computer_won = True
 
 		elif player_move == self.scissors:
 			if computer_move == self.paper:
 				player_won = True
-			elif computer_move == self.win_move:
-				computer_won = True
-			else:
-				computer_won = True
+			# elif computer_move == self.win_move:
+			# 	computer_won = True
+			# else:
+			# 	computer_won = True
 
 		# elif player_move == self.win_move:
 		# 	player_won = True
 
 		# elif player_move == self.defeat_move:
 		# 	computer_won = True
-
-		# elif computer_move == self.win_move:
-		# 	computer_won = True
-
-		# elif computer_move == self.defeat_move:
-		# 	player_won = True
 
 		else:
 			error = True
@@ -114,4 +108,3 @@ class Game:
 				return "T"
 			elif error:
 				return "E"
-				
