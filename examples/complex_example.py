@@ -24,4 +24,3 @@ if results == "T":
 
 if results == "E":
     print("Invalid move")
-    
